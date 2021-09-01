@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("install") {
             steps {
-                sh "npm install pm2"
+                sh "npm install pm2@latest"
             }
         }
         stage('back-upload') {
