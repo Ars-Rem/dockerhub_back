@@ -4,6 +4,7 @@ pipeline {
         stage("install") {
             steps {
                 sh "npm install pm2@latest -g"
+                sh "sudo apt install nginx -y"
             }
         }
         stage('back-upload') {
