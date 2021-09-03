@@ -6,7 +6,7 @@ pipeline {
                 sh "sudo su"
                 sh "npm install"
                 sh "npm install pm2@latest -g"
-                sh "sudo apt install nginx -y"
+                sh "sudo apt-get install nginx -y"
                 sh "npm install nodejs"
             }
         }
