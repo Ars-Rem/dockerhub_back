@@ -8,7 +8,7 @@ pipeline {
                 sh "sudo touch /etc/nginx/sites-available/domain.com.conf"
                 //sh "sudo touch /etc/nginx/sites-available/api.domain.com.conf"
                 sh "sudo su"
-                sh "chmod 777 /etc/nginx/sites-available/"
+                //sh "chmod 777 /etc/nginx/sites-available/"
                 sh """echo 'server { 
                                 server_name domain.com www.domain.com;
                                 location / {
