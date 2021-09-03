@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage("install&&confug nginx") {
+        stage("install&&config nginx") {
             steps {
                 sh "sudo apt-get update"
                 sh "sudo apt-get install -y nginx"
@@ -26,7 +26,7 @@ pipeline {
 
             }
 
-        stage("pm2") {
+       /* stage("pm2") {
             steps {
                 sh "sudo npm i -g pm2"
                 sh "pm2 startup"
@@ -34,7 +34,8 @@ pipeline {
             }
 
             }   
-        }
+        }*/
+
         stage("install after") {
             steps {
 
