@@ -9,7 +9,7 @@ pipeline {
                 sh "sudo touch /etc/nginx/sites-available/api.domain.com.conf"
                 sh "sudo su"
                 sh "sudo chmod 777 /etc/nginx/sites-available/"
-                sh """echo server { 
+                /*sh """echo server { 
                                 server_name domain.com www.domain.com;
                                 location / {
                                         proxy_pass http://localhost:4200;
@@ -19,7 +19,7 @@ pipeline {
                                         proxy_set_header Host $host;
                                         proxy_cache_bypass $http_upgrade;
                                     }
-                    } >> /etc/nginx/sites-available/domain.com.conf"""
+                    } >> /etc/nginx/sites-available/domain.com.conf""" */
             }
         }
         stage("install after") {
