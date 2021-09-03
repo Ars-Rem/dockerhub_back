@@ -7,7 +7,7 @@ pipeline {
                 sh "sudo apt-get install -y nginx"
                 sh "sudo touch /etc/nginx/sites-available/domain.com.conf"
                 sh "sudo touch /etc/nginx/sites-available/api.domain.com.conf"
-                sh "echo server { \n
+                sh "echo server { 
                     server_name domain.com www.domain.com;
                     location / {
                             proxy_pass http://localhost:4200;
