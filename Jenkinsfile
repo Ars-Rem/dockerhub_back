@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ("install&&confug nginx") {
+        stage("install&&confug nginx") {
             steps {
                 sh "sudo apt-get update"
                 sh "sudo apt-get install -y nginx"
