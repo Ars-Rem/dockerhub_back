@@ -25,13 +25,13 @@ pipeline {
                 sh "sudo systemctl start nginx"
 
             }
-
+        }
         stage("pm2") {
             sh "sudo npm i -g pm2"
             
 
         }   
-        }
+        
         stage("install after") {
             steps {
 
