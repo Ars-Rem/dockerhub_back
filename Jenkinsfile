@@ -31,7 +31,7 @@ pipeline {
         stage("start_app") {
             steps {
                 sh "pm2 start app.js"
-                sh "pm2 start all"
+               // sh "pm2 start all"
             }
         }
 
