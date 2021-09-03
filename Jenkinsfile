@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage ("install nginx") {
             steps {
-                sh "sudo apt-get install nginx -y"
+                sh "sudo update"
+                sh "sudo apt install nginx"
+                //sh "sudo apt-get install nginx -y"
             }
         }
         stage("install") {
