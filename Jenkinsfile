@@ -1,15 +1,6 @@
 pipeline {
     agent any
     stages {
-
-        stage("pm2") {
-            steps {
-                sh "sudo npm i -g pm2"
-                sh "pm2 startup"
-                sh "sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $USER –hp /home/$USER"
-            }
-        }   
-        
         stage ("install&&config nginx") {
             steps {
                 sh "sudo apt-get update"
@@ -37,7 +28,13 @@ pipeline {
             }
         }
 
-        
+        stage("pm2") {
+            steps {
+                sh "sudo npm i -g pm2"
+                sh "pm2 startup"
+                //sh "sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $USER –hp /home/$USER"
+            }
+        }   
         
         stage("install after") {
             steps {
