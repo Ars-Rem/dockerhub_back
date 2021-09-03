@@ -20,7 +20,19 @@ pipeline {
                                         proxy_cache_bypass $http_upgrade;
                                     }
                     } >> /etc/nginx/sites-available/domain.com.conf""" */
+                sh "sudo ln -s /etc/nginx/sites-available/api.domain.com.conf /etc/nginx/sites-enabled/api.domain.com.conf"
+                sh "sudo ln -s /etc/nginx/sites-available/domain.com.conf /etc/nginx/sites-enabled/domain.com.conf"
+                sh "sudo systemctl start nginx"
+
             }
+
+        stage("pm2") {
+            sh "sudo npm i -g pm2"
+            sh "pm2 startup"
+            sh "sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $USER –hp /home/$USER"
+
+
+        }   
         }
         stage("install after") {
             steps {
