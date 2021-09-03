@@ -3,7 +3,7 @@ var app = express()
 var server = require('http').createServer(app)
 var port = 8085;
 var io = require('socket.io')(server, {
-  origins: 'localhost:3000',
+  origins: 'localhost:6525',
 })
 
 var { onconnect } = require('./services/sockets/websocket.service')
