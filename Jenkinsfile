@@ -32,7 +32,7 @@ pipeline {
             steps {
                 sh "sudo npm i -g pm2"
                 sh "pm2 startup"
-                //sh "sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u $USER –hp /home/$USER"
+                sh "sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u test2 –hp /home/test2"
             }
         }   
         
