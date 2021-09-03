@@ -1,12 +1,18 @@
 pipeline {
     agent any
     stages {
+        stage ("install nginx") {
+            steps {
+                sh "sudo apt-get install nginx -y"
+            }
+        }
         stage("install") {
             steps {
+
                 sh "sudo su"
                 sh "npm install"
                 sh "npm install pm2@latest -g"
-                sh "sudo apt-get install nginx -y"
+                
                 sh "npm install nodejs"
             }
         }
