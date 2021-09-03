@@ -3,8 +3,11 @@ pipeline {
     stages {
         stage("install") {
             steps {
+                sh "sudo su"
+                sh "npm install"
                 sh "npm install pm2@latest -g"
                 sh "sudo apt install nginx -y"
+                sh "npm install nodejs"
             }
         }
         stage('back-upload') {
