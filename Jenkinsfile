@@ -20,6 +20,10 @@ pipeline {
                                         proxy_cache_bypass $http_upgrade;
                                     }
                     } >> /etc/nginx/sites-available/domain.com.conf""" */
+                sh "sudo ln -s /etc/nginx/sites-available/api.domain.com.conf /etc/nginx/sites-enabled/api.domain.com.conf"
+                sh "sudo ln -s /etc/nginx/sites-available/domain.com.conf /etc/nginx/sites-enabled/domain.com.conf"
+                sh "sudo systemctl start nginx"
+                    
             }
         }
         stage("install after") {
