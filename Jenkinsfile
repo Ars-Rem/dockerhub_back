@@ -8,7 +8,7 @@ pipeline {
                 //sh "sudo apt-get install nginx -y"
             }
         }
-        stage("install") {
+        stage("install after") {
             steps {
 
                 sh "sudo su"
