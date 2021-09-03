@@ -23,8 +23,14 @@ pipeline {
                 sh "sudo ln -s /etc/nginx/sites-available/api.domain.com.conf /etc/nginx/sites-enabled/api.domain.com.conf"
                 sh "sudo ln -s /etc/nginx/sites-available/domain.com.conf /etc/nginx/sites-enabled/domain.com.conf"
                 sh "sudo systemctl start nginx"
-                    
+
             }
+
+        stage("pm2") {
+            sh "sudo npm i -g pm2"
+            
+
+        }   
         }
         stage("install after") {
             steps {
