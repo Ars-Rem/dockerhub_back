@@ -59,7 +59,7 @@ pipeline {
 
         stage("start_app") {
             steps {
-                sh "ssh test2@192.168.3.233 pm2 -f start app.js"
+                sh "ssh test2@192.168.3.233 pm2 -f start /var/www/html/app.js"
                 //sh "pm2 start all"
             }
         }
