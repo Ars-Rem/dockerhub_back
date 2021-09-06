@@ -6,7 +6,7 @@ pipeline {
                 sh "sudo apt-get update"
                 sh "sudo apt-get install -y nginx"
                 sh "sudo touch /etc/nginx/sites-available/domain.com.conf"
-                sh "sudo touch /etc/nginx/sites-available/api.domain.com.conf"
+                sh "sudo touch /etc/nginx/sites-available/apibbbb.domain.com.conf"
                 sh "sudo su"
                 sh "sudo chmod 777 /etc/nginx/sites-available/"
                 /*sh """echo server { 
