@@ -10,7 +10,7 @@ pipeline {
                 sh "ssh test2@192.168.3.233 sudo su"
                 sh "ssh test2@192.168.3.233 sudo chmod 777 /etc/nginx/sites-available/"
                 sh "echo 'hello'"
-                /*sh """echo server { 
+                sh """ssh test2@192.168.3.233 echo server { 
                                 server_name domain.com www.domain.com;
                                 location / {
                                         proxy_pass http://localhost:4200;
