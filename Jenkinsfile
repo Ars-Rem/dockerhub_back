@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage ("install&&config nginx") {
             steps {
-                sh "sudo apt-get update"
-                sh "sudo apt-get install -y nginx"
-                sh "sudo touch /etc/nginx/sites-available/domain.com.conf"
-                sh "sudo touch /etc/nginx/sites-available/apibbbb.domain.com.conf"
-                sh "sudo su"
-                sh "sudo chmod 777 /etc/nginx/sites-available/"
+                sh "ssh test2@192.168.3.233 sudo apt-get update"
+                sh "ssh test2@192.168.3.233 sudo apt-get install -y nginx"
+                sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/domain.com.conf"
+                sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/apibbbb.domain.com.conf"
+                sh "ssh test2@192.168.3.233 sudo su"
+                sh "ssh test2@192.168.3.233 sudo chmod 777 /etc/nginx/sites-available/"
                 /*sh """echo server { 
                                 server_name domain.com www.domain.com;
                                 location / {
