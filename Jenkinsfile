@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh "ssh test2@192.168.3.233 sudo apt-get update"
                 sh "ssh test2@192.168.3.233 sudo apt-get install -y nginx"
+                sh "ssh test2@192.168.3.233 sudo npm install serve"
                 sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/domain.com.conf"
                 sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/api.domain.com.conf"
                 sh "ssh test2@192.168.3.233 sudo su"
@@ -28,6 +29,7 @@ pipeline {
 
             }
         }
+
 
         stage("pm2") {
             steps {
@@ -60,6 +62,8 @@ pipeline {
         stage("start_app") {
             steps {
                 sh "ssh test2@192.168.3.233 pm2 -f start /var/www/html/app.js"
+                sh "ssh test2@192.168.3.233 serve -s build"
+
                 //sh "pm2 start all"
             }
         }
