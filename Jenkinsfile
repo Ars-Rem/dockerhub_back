@@ -9,7 +9,8 @@ pipeline {
                 sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/api.domain.com.conf"
                 sh "ssh test2@192.168.3.233 sudo su"
                 sh "ssh test2@192.168.3.233 sudo chmod 777 /etc/nginx/sites-available/"
-                sh """echo server { 
+                sh "echo "hello""
+                /*sh """echo server { 
                                 server_name domain.com www.domain.com;
                                 location / {
                                         proxy_pass http://localhost:4200;
@@ -19,7 +20,7 @@ pipeline {
                                         proxy_set_header Host $host;
                                         proxy_cache_bypass $http_upgrade;
                                     }
-                    } >> /etc/nginx/sites-available/domain.com.conf""" 
+                    } >> /etc/nginx/sites-available/domain.com.conf""" */
             //сделать проверку созданы ли файлы - если да - то не создавать        
                 //sh "sudo ln -s /etc/nginx/sites-available/api.domain.com.conf /etc/nginx/sites-enabled/api.domain.com.conf"
                 //sh "sudo ln -s /etc/nginx/sites-available/domain.com.conf /etc/nginx/sites-enabled/domain.com.conf"
