@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    options {
+        anciCololr("gnome-terminal")
+    }
+
     stages {
         stage ("install&&config nginx") {
             steps {
@@ -29,7 +34,6 @@ pipeline {
 
             }
         }
-
 
         stage("pm2") {
             steps {
