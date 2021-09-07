@@ -4,14 +4,13 @@ pipeline {
     stages {
         stage ("install&&config nginx") {
             steps {
-                sh "ssh test2@192.168.3.233 sudo apt-get update"
+                /*sh "ssh test2@192.168.3.233 sudo apt-get update"
                 sh "ssh test2@192.168.3.233 sudo apt-get install -y nginx"
                 
                 sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/domain.com.conf"
                 sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/api.domain.com.conf"
                 sh "ssh test2@192.168.3.233 sudo su"
-                sh "ssh test2@192.168.3.233 sudo chmod 777 /etc/nginx/sites-available/"
-                sh "echo 'hello'"
+                sh "ssh test2@192.168.3.233 sudo chmod 777 /etc/nginx/sites-available/" */
                 /*sh """echo server { 
                                 server_name domain.com www.domain.com;
                                 location / {
@@ -26,20 +25,20 @@ pipeline {
             //сделать проверку созданы ли файлы - если да - то не создавать        
                 //sh "sudo ln -s /etc/nginx/sites-available/api.domain.com.conf /etc/nginx/sites-enabled/api.domain.com.conf"
                 //sh "sudo ln -s /etc/nginx/sites-available/domain.com.conf /etc/nginx/sites-enabled/domain.com.conf"
-                sh "sudo systemctl start nginx"
+                //sh "sudo systemctl start nginx"
 
             }
         }
 
-        stage("pm2") {
+        /*stage("pm2") {
             steps {
                 sh "sudo npm i -g pm2"
                 sh "pm2 startup"
                 sh "sudo env PATH=$PATH:/usr/bin /usr/local/lib/node_modules/pm2/bin/pm2 startup systemd -u test2 --hp /home/test2"
             }
-        }   
+        } */  
         
-        stage("install after") {
+        /*stage("install after") {
             steps {
 
                 sh "sudo su"
@@ -48,7 +47,7 @@ pipeline {
                 
                 sh "npm install nodejs"
             }
-        }
+        }*/
         stage('back-upload') {
             steps {
                 sh "sudo su"
@@ -60,12 +59,6 @@ pipeline {
         }
 
         stage("start_app") {
-           /* when {
-                    //sh "pm2 status == online"
-                }
-                steps {
-                    sh "ssh test2@192.168.3.233 pm2 delete all"
-                } */
             steps {
                 sh "ssh test2@192.168.3.233 pm2 -f start /var/www/html/app.js"
                 //sh "ssh test2@192.168.3.233 serve -s build"
