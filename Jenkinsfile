@@ -67,7 +67,7 @@ pipeline {
             when {
                     sh "pm2 status == online"
                 }
-                steps }
+                steps {
                     sh "ssh test2@192.168.3.233 pm2 delete all"
                 }
             steps {
