@@ -5,7 +5,7 @@ pipeline {
         stage('back-upload') {
             steps {
                 sh "sudo su"
-                sh "rsync --archive ~/git/react/back-react-coding-challenge-api-master/* test2@192.168.3.233:/var/www/back"
+                sh "rsync --archive /git/react/back-react-coding-challenge-api-master/* test2@192.168.3.233:/var/www/back"
             }
         }
 
