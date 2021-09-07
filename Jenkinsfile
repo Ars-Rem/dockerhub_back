@@ -63,7 +63,6 @@ pipeline {
             steps {
                 sh "ssh test2@192.168.3.233 pm2 delete all"
                 sh "ssh test2@192.168.3.233 pm2 -f start /var/www/html/app.js"
-                sh "ssh test2@192.168.3.233 echo gnome-terminal"
                 //sh "ssh test2@192.168.3.233 serve -s build"
 
                 //sh "pm2 start all"
