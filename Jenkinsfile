@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    options {
-        anciCololr("gnome-terminal")
-    }
-
     stages {
         stage ("install&&config nginx") {
             steps {
@@ -65,7 +61,7 @@ pipeline {
 
         stage("start_app") {
             when {
-                    sh "pm2 status == online"
+                    //sh "pm2 status == online"
                 }
                 steps {
                     sh "ssh test2@192.168.3.233 pm2 delete all"
