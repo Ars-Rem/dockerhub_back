@@ -11,6 +11,7 @@ pipeline {
                 sh "ssh test2@192.168.3.233 sudo touch /etc/nginx/sites-available/api.domain.com.conf"
                 sh "ssh test2@192.168.3.233 sudo su"
                 sh "ssh test2@192.168.3.233 sudo chmod 777 /etc/nginx/sites-available/" */
+                sh "ssh test2@192.168.3.233 echo ok"
                 /*sh """echo server { 
                                 server_name domain.com www.domain.com;
                                 location / {
