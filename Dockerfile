@@ -7,7 +7,7 @@ EXPOSE 81
 
 #RUN node app.js
 #CMD ["node", "app.js"]
-#RUN npm install
+RUN npm install
 #RUN npm install pm2@latest -g
 #RUN pm2 -f start app.js
 CMD ["node", "app.js"]
