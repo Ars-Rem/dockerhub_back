@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent any
 
     stages {
@@ -16,4 +16,46 @@ pipeline {
         }
 
     }
+}*/
+
+pipeline {
+    agent any
+    stages {
+        stage('build-app') {
+            steps {
+                sh "sudo su"
+                sh "npm install"
+                sh "npm run build"
+ //               sh "rsync --archive build/* test2@192.168.3.233:/var/www/html"
+            }
+        }
+
+        stage('docker-build-back') {
+            steps {
+                sh "sudo chmod 666 /var/run/docker.sock"
+                sh "docker build -t ${NAME}/docker_back:back_c ."
+            }
+        }
+
+        stage('docker-run-front') {
+            steps {
+                //sh "docker stop \$(docker ps -a -q)"
+                //sh "docker rm \$(docker ps -a -q)"
+                //sh "docker rmi -f \$(docker images -a -q)"
+                sh "docker stop back"
+                sh "docker rm back"
+                sh "docker run -d --name back -p 3001:80 ${NAME}/docker_back:back_c"
+                }
+            }
+        
+        
+        stage('docker-push-app') {
+            steps {
+                sh "docker commit back ${NAME}/docker_back:back_c"
+                sh "docker login -u ${NAME} -p ${PASS} docker.io"
+                sh "docker push ${NAME}/docker_back:back_c"
+            }
+        }
+    }        
 }
+
