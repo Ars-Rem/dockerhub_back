@@ -44,7 +44,7 @@ pipeline {
                 //sh "docker rmi -f \$(docker images -a -q)"
                 //sh "docker stop back"
                 //sh "docker rm back"
-                sh "docker run -d --name back -p 3001:80 ${NAME}/docker_back:back_c"
+                sh "docker run -d --name back -p 3010:80 ${NAME}/docker_back:back_c"
                 }
             }
         
