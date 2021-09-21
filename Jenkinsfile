@@ -21,15 +21,6 @@
 pipeline {
     agent any
     stages {
-       /* stage('build-app') {
-            steps {
-                sh "sudo su"
-                sh "npm install"
-                sh "npm run build"
- //               sh "rsync --archive build/* test2@192.168.3.233:/var/www/html"
-            }
-        }*/
-
         stage('docker-build-back') {
             steps {
                 sh "sudo chmod 666 /var/run/docker.sock"
@@ -44,7 +35,7 @@ pipeline {
                 //sh "docker rmi -f \$(docker images -a -q)"
                 sh "docker stop back"
                 sh "docker rm back"
-                sh "docker run -d --name back -p 3010:80 ${NAME}/docker_back:back_c"
+                sh "docker run -d --name back -p 3002:81 ${NAME}/docker_back:back_c"
                 }
             }
         
