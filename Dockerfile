@@ -13,4 +13,4 @@ RUN npm install
 #RUN pm2 -f start app.js
 EXPOSE 81
 #CMD ["node", "app.js"]
-CMD app.js
+CMD node
