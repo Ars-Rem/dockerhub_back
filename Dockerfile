@@ -4,7 +4,7 @@ WORKDIR /usr/share/nginx/html/back
 COPY ./  /usr/share/nginx/html/back
 RUN npm install
 RUN npm install pm2@latest -g
-RUN npm run
+
 
 EXPOSE 4735
 
