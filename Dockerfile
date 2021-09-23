@@ -1,16 +1,14 @@
 FROM node:14
-RUN mkdir -p /usr/share/nginx/html/back
-WORKDIR /usr/share/nginx/html/back
-COPY ./  /usr/share/nginx/html/back
-RUN RUN npm i -g npm@latest
-RUN npm install pm2@latest -g
 
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm i -g npm@latest
+
+COPY . .
 
 EXPOSE 4735
 
-#RUN node app.js
-CMD ["node", "app.js"]
-#CMD ["node"]
-
-#RUN pm2 -f start app.js
+CMD [ "node", "app.js" ]
 
