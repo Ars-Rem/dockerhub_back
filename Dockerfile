@@ -9,7 +9,7 @@ EXPOSE 4730
 
 #RUN node app.js
 #CMD ["node", "app.js"]
-CMD ["node"]
+CMD node
 
 #RUN pm2 -f start app.js
 
