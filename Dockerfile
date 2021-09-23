@@ -5,7 +5,7 @@ COPY ./  /usr/share/nginx/html/back
 RUN npm install
 RUN npm install pm2@latest -g
 
-EXPOSE 4730
+EXPOSE 4735
 
 #RUN node app.js
 CMD ["node", "app.js"]
