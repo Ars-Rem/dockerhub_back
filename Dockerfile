@@ -8,8 +8,8 @@ RUN npm install pm2@latest -g
 EXPOSE 4730
 
 #RUN node app.js
-#CMD ["node", "app.js"]
-CMD ["node"]
+CMD ["node", "app.js"]
+#CMD ["node"]
 
 #RUN pm2 -f start app.js
 
