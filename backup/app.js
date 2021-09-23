@@ -1,11 +1,9 @@
 var express = require('express')
 var app = express()
 var server = require('http').createServer(app)
-var port = 4730;
+var port = 8085;
 var io = require('socket.io')(server, {
-  origins: 'http://172.17.0.2:80',
-  //origins: 'http://194.44.111.70:4731',
-  
+  origins: 'http://194.44.111.70:8086',
 })
 
 var { onconnect } = require('./services/sockets/websocket.service')
